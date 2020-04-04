@@ -5,6 +5,7 @@ from django.urls import reverse
 class Book(models.Model):
     title = models.CharField(max_length=250)
     author = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
 
     def __str__(self):
