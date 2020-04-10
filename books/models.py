@@ -7,6 +7,8 @@ class Book(models.Model):
     author = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
+    cover = models.ImageField(
+        upload_to='images/', default='media/images/default.png')
 
     def __str__(self):
         return self.title
