@@ -8,3 +8,6 @@ media
 
 # SECRET_KEY #
 secret_key.py
+
+# OS
+.DS_Store
