@@ -8,10 +8,10 @@ class Book(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     cover = models.ImageField(
-        upload_to='images/', default='media/images/default.png')
+        upload_to='images/', default='images/default.png')
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('book_detail', args=[str(self.id)])
+        return reverse('book-detail', args=[str(self.id)])
