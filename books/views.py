@@ -1,16 +1,13 @@
-from rest_framework import generics
+from django.views.generic import ListView, DetailView
 
 from .models import Book
-from .serializers import BookSerializer
 
 
-class BookList(generics.ListAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-    template_name = 'books/book_list.html'
+class BookList(ListView):
+    model = Book
+    template_name = 'book_list.html'
 
 
-class BookDetail(generics.RetrieveAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-    template_name = 'books/book_detail.html'
+class BookDetail(DetailView):
+    model = Book
+    template_name = 'book_detail.html'
