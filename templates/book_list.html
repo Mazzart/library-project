@@ -1,11 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h1>Books List</h1>
 {% if book_list %}
 <ul>
-    {% for book in object_list %}
-    <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></li>
-    <img src="{{ book.cover.url}}" alt="{{ book.title }}">
-    {% endfor %}
+  {% for book in object_list %}
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <img src="{{ book.cover.url }}" class="card-img-top" alt="{{ book.title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ book.title }}</h5>
+            <p class="card-text">{{ book.description }}</p>
+            <a href="{{ book.get_absolute_url }}" class="btn btn-primary stretched-link">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
 </ul>
 {% else %}
     <p>There are no books in the library.</p>
 {% endif %}
+{% endblock %}
